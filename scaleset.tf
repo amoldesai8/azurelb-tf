@@ -7,12 +7,7 @@ resource "azurerm_virtual_machine_scale_set" "demo" {
   automatic_os_upgrade = true
   upgrade_policy_mode  = "Rolling"
 
-  rolling_upgrade_policy {
-    max_batch_instance_percent              = 20
-    max_unhealthy_instance_percent          = 20
-    max_unhealthy_upgraded_instance_percent = 5
-    pause_time_between_batches              = "PT0S"
-  }
+
 
   # required when using rolling upgrade policy
   health_probe_id = azurerm_lb_probe.demo.id
